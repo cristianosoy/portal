@@ -41,20 +41,17 @@ class ApplicationTest extends TestCase
         $data = array();
         $data['name'] = 'TEST1';
         $data['code'] = 'TEST1';
-
         $country = $classMapper->createInstance('country', $data);
         $country->save();
 
         $data = array();
         $data['name'] = 'Throwing exceptions';
-
         $expertise = $classMapper->createInstance('expertise', $data);
         $expertise->save();
 
         $data = array();
         $data['name'] = 'The Fake University';
         $data['domain'] = 'the-fake-university.com';
-
         $university = $classMapper->createInstance('university', $data);
         $university->save();
 
@@ -71,7 +68,6 @@ class ApplicationTest extends TestCase
         $data['state'] = 'NRW';
         $data['tos_accepted'] = true;
         $data['flag_accepted'] = true;
-
         $application = $classMapper->createInstance('application', $data);
         $application->save();
 

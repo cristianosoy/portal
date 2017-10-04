@@ -29,7 +29,6 @@ class UniversityTest extends TestCase
         $data = array();
         $data['name'] = 'Fake University';
         $data['domain'] = 'fake-university.com';
-
         $university = $classMapper->createInstance('university', $data);
         $university->save();
 
@@ -82,7 +81,6 @@ class UniversityTest extends TestCase
         $data = array();
         $data['name'] = 'Fake University';
         $data['domain'] = 'fake-university.com';
-
         $university = $classMapper->createInstance('university', $data);
         $university->save();
     }
