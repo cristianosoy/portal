@@ -1,0 +1,32 @@
+{% extends forcedLayout ? forcedLayout  : "pages/abstract/default.html.twig" %}
+
+{% set page_active = "application" %}
+
+{% block stylesheets_page %}
+    <!-- Include form widgets CSS -->
+    {{ assets.css("css/form-widgets") | raw }}
+{% endblock %}
+
+{# Overrides blocks in head of base template #}
+{% block page_title %}{{translate("APPLICATION")}}{% endblock %}
+
+{% block page_description %}{{translate("APPLICATION.DESCRIPTION")}}{% endblock %}
+
+{% block body_matter %}
+
+    {% include "forms/application.html.twig" %}
+
+{% endblock %}
+
+{% block scripts_page %}
+    <!-- Include validation rules -->
+    <script>
+    {% include "pages/partials/page.js.twig" %}
+    </script>
+
+    <!-- Include form widgets JS -->
+    {{ assets.js("js/form-widgets") | raw }}
+
+    <!-- Include page-specific JS -->
+    {{ assets.js("js/pages/application") | raw }}
+{% endblock %}

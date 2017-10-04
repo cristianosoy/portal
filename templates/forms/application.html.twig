@@ -1,0 +1,236 @@
+<div class="box box-primary">
+    <form id="application-form" role="form" action="{{site.uri.public}}/{{form.action}}" method="{{form.method | default("POST")}}" enctype="multipart/form-data">
+        <div class="box-header">
+            <h3 class="box-title"><i class="fa fa-gear fa-fw"></i> {{translate("APPLICATION.PERSONAL_INFO")}}</h3>
+            {% if application.flag_accepted is defined %}
+                {% if (application.flag_accepted) %}
+                    <span class="label label-success pull-right">{{translate("APPLICATION.STATUS_ACCEPTED")}}</span>
+                {% else %}
+                    <span class="label label-warning pull-right">{{translate("APPLICATION.STATUS_REVIEWING")}}</span>
+                {% endif %}
+            {% endif %}
+        </div>
+        <div class="box-body">
+            {% include "forms/csrf.html.twig" %}
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label class="control-label">{{translate("APPLICATION.FULL_NAME")}} (<a href="{{site.uri.public}}/account/settings">{{translate("EDIT")}}</a>)*</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-fw fa-user"></i></span>
+                            <input type="text" class="form-control" value="{{user.getFullNameAttribute()}}" readonly>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">{{translate("APPLICATION.EMAIL")}} (<a href="{{site.uri.public}}/account/settings">{{translate("EDIT")}}</a>)*</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-fw fa-envelope"></i></span>
+                            <input type="text" class="form-control" value="{{user.email}}" readonly>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">{{translate("APPLICATION.UNIVERSITY")}}*</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-fw fa-university"></i></span>
+                            <input type="text" class="form-control" value="{{application.university.name}}" readonly>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input-birthday" class="control-label">{{translate("APPLICATION.BIRTHDAY")}} (yyyy-mm-dd)*</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-fw fa-birthday-cake"></i></span>
+                            <input type="text" id="input-birthday" class="form-control" value="{{application.birthday}}" name="birthday" placeholder="yyyy-mm-dd" {{ readonly }}>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input-phone" class="control-label">{{translate("APPLICATION.PHONE")}}</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-fw fa-phone"></i></span>
+                            <input type="tel" id="input-phone" class="form-control" value="{{application.phone}}" name="phone" {{ readonly }}>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label for="input-street" class="control-label">{{translate("APPLICATION.STREET")}}*</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-fw fa-road"></i></span>
+                            <input type="text" id="input-street" class="form-control" value="{{application.street}}" name="street" {{ readonly }}>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input-postal_code" class="control-label">{{translate("APPLICATION.POSTAL_CODE")}}*</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-fw fa-location-arrow"></i></span>
+                            <input type="number" id="input-postal_code" class="form-control" value="{{application.postal_code}}" name="postal_code" {{ readonly }}>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input-city" class="control-label">{{translate("APPLICATION.CITY")}}*</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-fw fa-home"></i></span>
+                            <input type="text" id="input-city" class="form-control" value="{{application.city}}" name="city" {{ readonly }}>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input-state" class="control-label">{{translate("APPLICATION.STATE")}}*</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-fw fa-flag"></i></span>
+                            <input type="text" id="input-state" class="form-control" value="{{application.state}}" name="state" {{ readonly }}>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input-country" class="control-label">{{translate("COUNTRY")}}*</label>
+                        <select id="input-country" class="form-control js-select2" name="country" {{ readonly }}>
+                            {% for country in countries %}
+                            <option value="{{country.name}}"{% if (country.name == application.country.name) %} selected{% endif %}>{{country.name}}</option>
+                            {%endfor%}
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <h4>{{translate("APPLICATION.ADDITIONAL")}}</h4>
+                    <hr>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label for="input-facebook" class="control-label">Facebook</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-fw fa-facebook"></i></span>
+                            <input type="text" id="input-facebook" class="form-control" value="{{application.facebook}}" name="facebook" placeholder="https://www.facebook.com/username" {{ readonly }}>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input-twitter" class="control-label">Twitter</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-fw fa-twitter"></i></span>
+                            <input type="text" id="input-twitter" class="form-control" value="{{application.twitter}}" name="twitter" placeholder="https://twitter.com/username" {{ readonly }}>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input-googleplus" class="control-label">Google Plus</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-fw fa-google-plus"></i></span>
+                            <input type="text" id="input-googleplus" class="form-control" value="{{application.googleplus}}" name="googleplus" placeholder="https://plus.google.com/+username" {{ readonly }}>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input-github" class="control-label">GitHub</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-fw fa-github"></i></span>
+                            <input type="text" id="input-github" class="form-control" value="{{application.github}}" name="github" placeholder="https://github.com/username" {{ readonly }}>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input-xing" class="control-label">Xing</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-fw fa-xing"></i></span>
+                            <input type="text" id="input-xing" class="form-control" value="{{application.xing}}" name="xing" placeholder="https://www.xing.com/profile/username" {{ readonly }}>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input-linkedin" class="control-label">LinkedIn</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-fw fa-linkedin"></i></span>
+                            <input type="text" id="input-linkedin" class="form-control" value="{{application.linkedin}}" name="linkedin" placeholder="https://www.linkedin.com/in/username" {{ readonly }}>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label for="input-expertise" class="control-label">{{translate("EXPERTISE")}}*</label>
+                        <select id="input-expertise" class="form-control js-select2" name="expertise" {{ readonly }}>
+                            {% for expertise in expertises %}
+                            <option value="{{expertise.name}}"{% if (expertise.name == application.expertise.name) %} selected{% endif %}>{{expertise.name}}</option>
+                            {%endfor%}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="input-referrer" class="control-label">{{translate("APPLICATION.REFERRER")}}</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-fw fa-comments"></i></span>
+                            <textarea name="referrer" id="input-referrer" class="form-control" rows="3" {{ readonly }}>{{application.referrer}}</textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input-dietary_restrictions" class="control-label">{{translate("APPLICATION.DIETARY_RESTRICTIONS")}}</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-fw fa-cutlery"></i></span>
+                            <textarea name="dietary_restrictions" id="input-dietary_restrictions" class="form-control" rows="3" {{ readonly }}>{{application.dietary_restrictions}}</textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input-comment" class="control-label">{{translate("APPLICATION.COMMENT")}}</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-fw fa-code"></i></span>
+                            <textarea name="comment" id="input-comment" class="form-control" rows="4" {{ readonly }}>{{application.comment}}</textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <h4>{{translate("APPLICATION.TEAM")}}</h4>
+                    <hr>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        <label for="input-teammate1" class="control-label">{{translate("APPLICATION.TEAMMATE")}} #1</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-fw fa-users"></i></span>
+                            <input type="text" class="form-control" value="{{application.teammate1}}" name="teammate1" {{ readonly }}>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        <label for="input-teammate2" class="control-label">{{translate("APPLICATION.TEAMMATE")}} #2</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-fw fa-users"></i></span>
+                            <input type="text" class="form-control" value="{{application.teammate2}}" name="teammate2" {{ readonly }}>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        <label for="input-teammate3" class="control-label">{{translate("APPLICATION.TEAMMATE")}} #3</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-fw fa-users"></i></span>
+                            <input type="text" class="form-control" value="{{application.teammate3}}" name="teammate3" {{ readonly }}>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% if readonly is not defined %}
+            <div class="row">
+                <div class="col-lg-12">
+                    <h4>{{translate("APPLICATION.SUBMIT")}}</h4>
+                    <hr>
+                    <div class="form-group">
+                        <div class="input-group checkbox icheck">
+                            <label for="input-tos_accepted" class="control-label">
+                                <input type="checkbox" id="input-tos_accepted" class="js-icheck" name="tos_accepted" {% if (application.tos_accepted) %}checked{% endif %}>
+                                {{translate("APPLICATION.TOS_ACCEPTED", {
+                                    "link_attributes" : "id=\"open-tos\" href=\"#\" data-toggle=\"modal\""
+                                })}}*
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+        {% if readonly is not defined %}
+        <div class="box-footer">
+            <button type="submit" class="btn btn-success js-submit"><i class="fa fa-floppy-o"></i> {{translate("SAVE")}}</button>
+            <a href="#" role="button" id="open-confirm-delete" data-id="{{application.id}}" class="btn btn-danger pull-right"><i class="fa fa-trash-o"></i> {{translate("DELETE")}}</a>
+        </div>
+        {% endif %}
+    </form>
+</div>

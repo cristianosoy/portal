@@ -1,0 +1,13 @@
+{
+    "id" : {
+        "validators" : {
+            "integer" : {
+                "message" : "VALIDATE.INTEGER"
+            },
+            "required" : {
+                "label" : "&ID",
+                "message" : "VALIDATE.REQUIRED"
+            }
+        }
+    }
+}

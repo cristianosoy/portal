@@ -1,0 +1,38 @@
+{
+    "code" : {
+        "transformations" : [
+            "purge",
+            "trim"
+        ],
+        "validators" : {
+            "required" : {
+                "label" : "&CODE",
+                "message" : "VALIDATE.REQUIRED"
+            },
+            "length" : {
+                "min" : 0,
+                "max" : 255,
+                "label" : "&CODE",
+                "message" : "VALIDATE.LENGTH_RANGE"
+            }
+        }
+    },
+    "name" : {
+        "transformations" : [
+            "purge",
+            "trim"
+        ],
+        "validators" : {
+            "required" : {
+                "label" : "&NAME",
+                "message" : "VALIDATE.REQUIRED"
+            },
+            "length" : {
+                "min" : 0,
+                "max" : 255,
+                "label" : "&NAME",
+                "message" : "VALIDATE.LENGTH_RANGE"
+            }
+        }
+    }
+}

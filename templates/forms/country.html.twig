@@ -1,0 +1,37 @@
+<form class="js-form" method="{{form.method | default('POST')}}" action="{{site.uri.public}}/{{form.action}}">
+    {% include "forms/csrf.html.twig" %}
+    <div class="js-form-alerts">
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group">
+                <label>{{translate("NAME")}}</label>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-globe fa-fw"></i></span>
+                    <input type="text" class="form-control" name="name" autocomplete="off" value="{{country.name}}" placeholder="{{translate("NAME")}}">
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="form-group">
+                <label>{{translate("COUNTRY.CODE")}}</label>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-edit fa-fw"></i></span>
+                    <input type="text" class="form-control" name="code" autocomplete="off" value="{{country.code}}" placeholder="{{translate("COUNTRY.CODE")}}">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-6 col-sm-4">
+            <button type="submit" class="btn btn-block btn-lg btn-success">{{form.submit_text}}</button>
+        </div>
+        <div class="col-xs-4 col-sm-3 pull-right">
+            <button type="button" class="btn btn-block btn-lg btn-link" data-dismiss="modal">{{translate("CANCEL")}}</button>
+        </div>
+    </div>
+</form>
+<!-- Include validation rules -->
+<script>
+{% include "pages/partials/page.js.twig" %}
+</script>

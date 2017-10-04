@@ -1,0 +1,18 @@
+{% extends "modals/modal.html.twig" %}
+
+{% block modal_title %}
+    {{translate("APPLICATION.TOS_FOR", {
+        "title" : site.title,
+        "year" : year
+    })}}
+{% endblock %}
+
+{% block modal_body %}
+    <div class="text-left">
+        {{translate("APPLICATION.TOS")}}
+    </div>
+{% endblock %}
+
+{% block modal_footer %}
+    <button type="button" data-dismiss="modal" class="btn btn-primary btn-block">{{translate("APPLICATION.CLOSE")}}</button>
+{% endblock %}

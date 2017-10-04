@@ -1,0 +1,111 @@
+{# This partial template renders a table of user activities, to be populated with rows via an AJAX request.
+ # This extends a generic template for paginated tables.
+ #
+ # Note that this template contains a "skeleton" table with an empty table body, and then a block of Handlebars templates which are used
+ # to render the table cells with the data from the AJAX request.
+#}
+
+{% extends "tables/table-paginated.html.twig" %}
+
+{% block table %}
+    <table id="{{table.id}}" class="tablesorter table table-bordered table-hover table-striped">
+        <thead>
+            <tr>
+                <th data-column-name="display_name" data-column-template="#application-table-column-display-name" data-sorter="false" data-filter="false">{{translate('NAME')}}</th>
+                <th class="sorter-metatext" data-column-name="birthday" data-column-template="#application-table-column-birthday">{{translate("APPLICATION.BIRTHDAY")}}</th>
+                <th data-column-name="university_name" data-column-template="#application-table-column-university" data-sorter="false" data-filter="false">{{translate("UNIVERSITY")}}</th>
+                <th class="sorter-metatext" data-column-name="city" data-column-template="#application-table-column-city">{{translate("APPLICATION.CITY")}} <i class="fa fa-sort"></i></th>
+                <th class="sorter-metatext" data-column-name="state" data-column-template="#application-table-column-state">{{translate("APPLICATION.STATE")}} <i class="fa fa-sort"></i></th>
+                <th data-column-name="country_name" data-column-template="#application-table-column-country" data-sorter="false" data-filter="false">{{translate("COUNTRY")}}</th>
+                <th data-column-name="expertise_name" data-column-template="#application-table-column-expertise" data-sorter="false" data-filter="false">{{translate("EXPERTISE")}} <i class="fa fa-sort"></i></th>
+                <th data-column-template="#application-table-column-actions" data-sorter="false" data-filter="false">{{translate('ACTIONS')}}</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+{% endblock %}
+
+{% block table_cell_templates %}
+    {# This contains a series of <script> blocks, each of which is a client-side Handlebars template.
+     # Note that these are NOT Twig templates, although the syntax is similar.  We wrap them in the `verbatim` tag,
+     # so that Twig will output them directly into the DOM instead of trying to treat them like Twig templates.
+     #
+     # These templates require handlebars-helpers.js, moment.js
+    #}
+    {% verbatim %}
+    <script id="application-table-column-display-name" type="text/x-handlebars-template">
+        <td>
+            {{row.display_name}}
+        </td>
+    </script>
+
+    <script id="application-table-column-birthday" type="text/x-handlebars-template">
+        <td>
+            {{row.birthday}}
+        </td>
+    </script>
+
+    <script id="application-table-column-university" type="text/x-handlebars-template">
+        <td>
+            {{row.university_name}}
+        </td>
+    </script>
+
+    <script id="application-table-column-city" type="text/x-handlebars-template">
+        <td>
+            {{row.city}}
+        </td>
+    </script>
+
+    <script id="application-table-column-state" type="text/x-handlebars-template">
+        <td>
+            {{row.state}}
+        </td>
+    </script>
+
+    <script id="application-table-column-country" type="text/x-handlebars-template">
+        <td>
+            {{row.country_name}}
+        </td>
+    </script>
+
+    <script id="application-table-column-expertise" type="text/x-handlebars-template">
+        <td>
+            {{row.expertise_name}}
+        </td>
+    </script>
+
+    <script id="application-table-column-actions" type="text/x-handlebars-template">
+        <td>
+            <div class="btn-group">
+                <button type="button" class="btn {{#ifx row.flag_accepted '==' 1 }}btn-primary{{ else }}btn-warning{{/ifx }} dropdown-toggle" data-toggle="dropdown">
+                    {% endverbatim %}{{translate("ACTIONS")}}{% verbatim %}
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                    <li>
+                        <a href="#" data-id="{{row.id}}" class="js-application-view">
+                        <i class="fa fa-edit"></i> {% endverbatim %}{{translate("APPLICATION.VIEW")}}{% verbatim %}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-id="{{row.id}}" class="js-application-accept">
+                        {{#ifx row.flag_accepted '==' 1 }}
+                        <i class="fa fa-minus-circle"></i> {% endverbatim %}{{translate("APPLICATION.REJECT")}}{% verbatim %}
+                        {{ else }}
+                        <i class="fa fa-plus-circle"></i> {% endverbatim %}{{translate("APPLICATION.ACCEPT")}}{% verbatim %}
+                        {{/ifx }}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-id="{{row.id}}" class="js-application-delete">
+                        <i class="fa fa-trash-o"></i> {% endverbatim %}{{translate("DELETE")}}{% verbatim %}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </td>
+    </script>
+    {% endverbatim %}
+{% endblock %}

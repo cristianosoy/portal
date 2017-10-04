@@ -1,0 +1,27 @@
+{
+    "name": "splitt3r/portal",
+    "type": "userfrosting-sprinkle",
+    "description": "Hackathon application management module for UserFrosting.",
+    "keywords": ["application management", "hackathon", "event", "userfrosting"],
+    "homepage": "https://github.com/splitt3r/portal",
+    "license" : "MIT",
+    "authors" : [
+        {
+            "name": "Kai Schröer",
+            "homepage": "https://schroeer.co"
+        },
+        {
+            "name": "Igor Besel",
+            "homepage": "http://igorhq.de"
+        }
+    ],
+    "version": "0.2.0",
+    "require": {
+        "php": ">=5.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "UserFrosting\\Sprinkle\\Portal\\": "src/"
+        }
+    }
+}

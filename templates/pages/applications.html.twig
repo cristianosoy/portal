@@ -1,0 +1,48 @@
+{% extends "pages/abstract/dashboard.html.twig" %}
+
+{% block stylesheets_page %}
+    <!-- Page-specific CSS asset bundle -->
+    {{ assets.css('css/form-widgets') | raw }}
+{% endblock %}
+
+{# Overrides blocks in head of base template #}
+{% block page_title %}{{translate("APPLICATION", 2)}}{% endblock %}
+
+{% block page_description %}{{translate("APPLICATION.PAGE_DESCRIPTION")}}.{% endblock %}
+
+{% block body_matter %}
+    <div class="row">
+        <div class="col-md-12">
+            <div id="widget-applications" class="box box-primary">
+                <div class="box-header">
+                    <h3 class="box-title"><i class="fa fa-file-text fa-fw"></i> {{translate('APPLICATION', 2)}}</h3>
+                    <div class="pull-right">
+                        <button class="btn btn-sm btn-default js-download-table">{{translate("DOWNLOAD.CSV")}}</button>
+                    </div>
+                </div>
+                <div class="box-body">
+                    {% include "tables/applications.html.twig" with {
+                            "table" : {
+                                "id" : "table-applications",
+                                "columns" : ["display_name", "birthday", "university_name", "city", "state", "country_name", "expertise"]
+                            }
+                        }
+                    %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block scripts_page %}
+    <!-- Include validation rules -->
+    <script>
+    {% include "pages/partials/page.js.twig" %}
+    </script>
+
+    <!-- Include form widgets JS -->
+    {{ assets.js('js/form-widgets') | raw }}
+
+    <!-- Include page-specific JS -->
+    {{ assets.js('js/pages/applications') | raw }}
+
+{% endblock %}

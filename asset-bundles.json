@@ -1,0 +1,95 @@
+{
+    "bundle": {
+        "js/pages/application": {
+            "scripts": [
+                "userfrosting/js/pages/application.js"
+            ],
+            "options": {
+                "result": {
+                    "type": {
+                        "scripts": "plain"
+                    }
+                }
+            }
+        },
+        "js/pages/applications": {
+            "scripts": [
+                "userfrosting/js/widgets/applications.js",
+                "userfrosting/js/pages/applications.js"
+            ],
+            "options": {
+                "result": {
+                    "type": {
+                        "scripts": "plain"
+                    }
+                }
+            }
+        },
+        "js/pages/countries": {
+            "scripts": [
+                "userfrosting/js/widgets/countries.js",
+                "userfrosting/js/pages/countries.js"
+            ],
+            "options": {
+                "result": {
+                    "type": {
+                        "scripts": "plain"
+                    }
+                }
+            }
+        },
+        "js/pages/expertises": {
+            "scripts": [
+                "userfrosting/js/widgets/expertises.js",
+                "userfrosting/js/pages/expertises.js"
+            ],
+            "options": {
+                "result": {
+                    "type": {
+                        "scripts": "plain"
+                    }
+                }
+            }
+        },
+        "js/pages/universities": {
+            "scripts": [
+                "userfrosting/js/widgets/universities.js",
+                "userfrosting/js/pages/universities.js"
+            ],
+            "options": {
+                "result": {
+                    "type": {
+                        "scripts": "plain"
+                    }
+                }
+            }
+        },
+        "css/portal": {
+            "styles": [
+                "userfrosting/css/portal.css"
+            ],
+            "options": {
+                "result": {
+                    "type": {
+                        "styles": "plain"
+                    }
+                }
+            }
+        },
+        "css/main": {
+            "styles" : [
+                "userfrosting/css/pages/application.css"
+            ],
+            "options": {
+                "result": {
+                    "type": {
+                        "styles": "plain"
+                    }
+                },
+                "sprinkle": {
+                    "onCollision": "merge"
+                }
+            }
+        }
+    }
+}

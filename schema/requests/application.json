@@ -1,0 +1,313 @@
+{
+    "birthday" : {
+        "transformations" : [
+            "purge",
+            "trim"
+        ],
+        "validators" : {
+            "required" : {
+                "label" : "&BIRTHDAY",
+                "message" : "VALIDATE.REQUIRED"
+            },
+            "regex" : {
+                "regex" : "^((19|20)[0-9][0-9])-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$",
+                "label" : "&BIRTHDAY",
+                "message" : "VALIDATE.DATE"
+            }
+        }
+    },
+    "phone" : {
+        "transformations" : [
+            "purge",
+            "trim"
+        ],
+        "validators" : {
+            "length" : {
+                "min" : 0,
+                "max" : 20,
+                "label" : "&PHONE",
+                "message" : "VALIDATE.LENGTH_RANGE"
+            }
+        }
+    },
+    "street" : {
+        "transformations" : [
+            "purge",
+            "trim"
+        ],
+        "validators" : {
+            "required" : {
+                "label" : "&STREET",
+                "message" : "VALIDATE.REQUIRED"
+            },
+            "length" : {
+                "min" : 1,
+                "max" : 255,
+                "label" : "&STREET",
+                "message" : "VALIDATE.LENGTH_RANGE"
+            }
+        }
+    },
+    "postal_code" : {
+        "transformations" : [
+            "purge",
+            "trim"
+        ],
+        "validators" : {
+            "required" : {
+                "label" : "&POSTAL_CODE",
+                "message" : "VALIDATE.REQUIRED"
+            },
+            "length" : {
+                "min" : 1,
+                "max" : 10,
+                "label" : "&POSTAL_CODE",
+                "message" : "VALIDATE.LENGTH_RANGE"
+            }
+        }
+    },
+    "city" : {
+        "transformations" : [
+            "purge",
+            "trim"
+        ],
+        "validators" : {
+            "required" : {
+                "label" : "&CITY",
+                "message" : "VALIDATE.REQUIRED"
+            },
+            "length" : {
+                "min" : 1,
+                "max" : 255,
+                "label" : "&CITY",
+                "message" : "VALIDATE.LENGTH_RANGE"
+            }
+        }
+    },
+    "state" : {
+        "transformations" : [
+            "purge",
+            "trim"
+        ],
+        "validators" : {
+            "required" : {
+                "label" : "&STATE",
+                "message" : "VALIDATE.REQUIRED"
+            },
+            "length" : {
+                "min" : 1,
+                "max" : 255,
+                "label" : "&STATE",
+                "message" : "VALIDATE.LENGTH_RANGE"
+            }
+        }
+    },
+    "country" : {
+        "transformations" : [
+            "purge",
+            "trim"
+        ],
+        "validators" : {
+            "required" : {
+                "label" : "&COUNTRY",
+                "message" : "VALIDATE.REQUIRED"
+            }
+        }
+    },
+    "facebook" : {
+        "transformations" : [
+            "purge",
+            "trim"
+        ],
+        "validators" : {
+            "length" : {
+                "min" : 0,
+                "max" : 255,
+                "label" : "&FACEBOOK",
+                "message" : "VALIDATE.LENGTH_RANGE"
+            }
+        }
+    },
+    "twitter" : {
+        "transformations" : [
+            "purge",
+            "trim"
+        ],
+        "validators" : {
+            "length" : {
+                "min" : 0,
+                "max" : 255,
+                "label" : "&TWITTER",
+                "message" : "VALIDATE.LENGTH_RANGE"
+            }
+        }
+    },
+    "googleplus" : {
+        "transformations" : [
+            "purge",
+            "trim"
+        ],
+        "validators" : {
+            "length" : {
+                "min" : 0,
+                "max" : 255,
+                "label" : "&GOOGLEPLUS",
+                "message" : "VALIDATE.LENGTH_RANGE"
+            }
+        }
+    },
+    "github" : {
+        "transformations" : [
+            "purge",
+            "trim"
+        ],
+        "validators" : {
+            "length" : {
+                "min" : 0,
+                "max" : 255,
+                "label" : "&GITHUB",
+                "message" : "VALIDATE.LENGTH_RANGE"
+            }
+        }
+    },
+    "xing" : {
+        "transformations" : [
+            "purge",
+            "trim"
+        ],
+        "validators" : {
+            "length" : {
+                "min" : 0,
+                "max" : 255,
+                "label" : "&XING",
+                "message" : "VALIDATE.LENGTH_RANGE"
+            }
+        }
+    },
+    "linkedin" : {
+        "transformations" : [
+            "purge",
+            "trim"
+        ],
+        "validators" : {
+            "length" : {
+                "min" : 0,
+                "max" : 255,
+                "label" : "&LINKEDIN",
+                "message" : "VALIDATE.LENGTH_RANGE"
+            }
+        }
+    },
+    "expertise" : {
+        "transformations" : [
+            "purge",
+            "trim"
+        ],
+        "validators" : {
+            "required": {
+                "label": "&EXPERTISE",
+                "message": "VALIDATE.REQUIRED"
+            }
+        }
+    },
+    "referrer" : {
+        "transformations" : [
+            "purge",
+            "trim"
+        ],
+        "validators" : {
+            "length" : {
+                "min" : 0,
+                "max" : 255,
+                "label" : "&REFERRER",
+                "message" : "VALIDATE.LENGTH_RANGE"
+            }
+        }
+    },
+    "dietary_restrictions" : {
+        "transformations" : [
+            "purge",
+            "trim"
+        ],
+        "validators" : {
+            "length" : {
+                "min" : 0,
+                "max" : 255,
+                "label" : "&DIETARY_RESTRICTIONS",
+                "message" : "VALIDATE.LENGTH_RANGE"
+            }
+        }
+    },
+    "comment" : {
+        "transformations" : [
+            "purge",
+            "trim"
+        ],
+        "validators" : {
+            "length" : {
+                "min" : 0,
+                "max" : 255,
+                "label" : "&COMMENT",
+                "message" : "VALIDATE.LENGTH_RANGE"
+            }
+        }
+    },
+    "teammate1" : {
+        "transformations" : [
+            "purge",
+            "trim"
+        ],
+        "validators" : {
+            "length": {
+                "min" : 0,
+                "max" : 255,
+                "label" : "&TEAMMATE1",
+                "message" : "VALIDATE.LENGTH_RANGE"
+            }
+        }
+    },
+    "teammate2" : {
+        "transformations" : [
+            "purge",
+            "trim"
+        ],
+        "validators" : {
+            "length" : {
+                "min" : 0,
+                "max" : 255,
+                "label" : "&TEAMMATE2",
+                "message" : "VALIDATE.LENGTH_RANGE"
+            }
+        }
+    },
+    "teammate3" : {
+        "transformations" : [
+            "purge",
+            "trim"
+        ],
+        "validators" : {
+            "length" : {
+                "min" : 0,
+                "max" : 255,
+                "label" : "&TEAMMATE3",
+                "message" : "VALIDATE.LENGTH_RANGE"
+            }
+        }
+    },
+    "tos_accepted" : {
+        "validators" : {
+            "required" : {
+                "domain" : "server",
+                "label" : "&TOS_ACCEPTED",
+                "message" : "VALIDATE.REQUIRED"
+            },
+            "member_of" : {
+                "domain" : "server",
+                "values" : [
+                    "1"
+                ],
+                "message" : "VALIDATE.ACCEPT_TOS"
+            }
+        }
+    }
+}

@@ -1,0 +1,34 @@
+{% extends "@core/pages/abstract/base.html.twig" %}
+
+{% block stylesheets_site %}
+    {{ parent() }}
+
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
+{% endblock %}
+
+{% block scripts_site %}
+    {{ parent() }}
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+    <script>
+        window.addEventListener("load", function(){
+            window.cookieconsent.initialise({
+                "palette": {
+                    "popup": {
+                        "background": "#515156",
+                        "text": "#ffffff"
+                    },
+                    "button": {
+                        "background": "#f28f56",
+                        "text": "#eeeeee"
+                    }
+                },
+                "content": {
+                    "message": "{{ translate("COOKIES.MESSAGE") }}",
+                    "dismiss": "{{ translate("COOKIES.DISMISS") }}",
+                    "link": "{{ translate("COOKIES.LINK") }}",
+                    "href": "{{ translate("COOKIES.URL") | raw }}"
+                }
+            })});
+    </script>
+{% endblock %}

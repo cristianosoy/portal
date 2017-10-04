@@ -1,0 +1,9 @@
+.sass-cache/
+.idea/
+.vscode/
+assets/vendor/
+vendor/
+.DS_Store
+Thumbs.db
+composer.lock
+*.iml
