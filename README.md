@@ -1,5 +1,5 @@
-# [DO!Hack](https://dohack.io) - Registration portal
-Registration portal for DO!Hack 2017. This is a [Sprinkle](https://learn.userfrosting.com/sprinkles/introduction) for UserFrosting.
+# [DO!Hack](https://dohack.io) - Hackathon registration portal
+This is the hackathon registration portal for DO!Hack 2017. It´s implemented as a [Sprinkle](https://learn.userfrosting.com/sprinkles/introduction) for UserFrosting. It was developed by [iGore](https://github.com/iGore) and [me](https://github.com/splitt3r).
 
 ## Installation
 In your `app/sprinkles/` folder do:
@@ -18,7 +18,7 @@ Edit your `app/sprinkles.json`:
 ```
 In your root folder do:
 ```
-composer update --no-dev
+composer update
 php bakery bake
 ```
 
