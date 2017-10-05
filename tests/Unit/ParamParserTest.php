@@ -10,7 +10,6 @@ namespace UserFrosting\Tests\Unit;
 use UserFrosting\Sprinkle\Portal\Database\Models\University;
 use UserFrosting\Sprinkle\Portal\Util\ParamParser;
 use UserFrosting\Tests\TestCase;
-use UserFrosting\Tests\DatabaseTransactions;
 use UserFrosting\Support\Exception\BadRequestException;
 
 /**
