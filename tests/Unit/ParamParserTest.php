@@ -26,8 +26,17 @@ class ParamParserTest extends TestCase
      */
     public function testParamParser()
     {
+        /** @var \UserFrosting\Sprinkle\Core\Util\ClassMapper $classMapper */
+        $classMapper = $this->ci->classMapper;
+
+        $data = array();
+        $data['name'] = 'Test University';
+        $data['domain'] = 'test-university.com';
+        $university = $classMapper->createInstance('university', $data);
+        $university->save();
+
         $params = array();
-        $params['id'] = 1;
+        $params['id'] = $university->id;
         $university = ParamParser::getObjectById('university', $params);
 
         $this->assertInstanceOf(University::class, $university);
