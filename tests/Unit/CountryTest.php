@@ -29,7 +29,6 @@ class CountryTest extends TestCase
         $data = array();
         $data['name'] = 'Test';
         $data['code'] = 'TEST';
-
         $country = $classMapper->createInstance('country', $data);
         $country->save();
 
@@ -52,7 +51,6 @@ class CountryTest extends TestCase
         $data = array();
         $data['name'] = 'Test';
         $data['code'] = 'TEST';
-
         $country = $classMapper->createInstance('country', $data);
         $country->save();
     }

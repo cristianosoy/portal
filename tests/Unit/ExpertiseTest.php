@@ -31,7 +31,6 @@ class ExpertiseTest extends TestCase
 
         $data = array();
         $data['name'] = 'Testing';
-
         $expertise = $classMapper->createInstance('expertise', $data);
         $expertise->save();
 
