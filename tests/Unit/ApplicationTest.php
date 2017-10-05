@@ -8,8 +8,10 @@
 namespace UserFrosting\Tests\Unit;
 
 use UserFrosting\Sprinkle\Portal\Database\Models\Application;
+use UserFrosting\Sprinkle\Portal\Database\Models\Country;
+use UserFrosting\Sprinkle\Portal\Database\Models\Expertise;
+use UserFrosting\Sprinkle\Portal\Database\Models\University;
 use UserFrosting\Tests\TestCase;
-use UserFrosting\Tests\DatabaseTransactions;
 
 /**
  * Application unit test class.
@@ -19,58 +21,26 @@ use UserFrosting\Tests\DatabaseTransactions;
  */
 class ApplicationTest extends TestCase
 {
-    use DatabaseTransactions;
-
     /**
      * Test the creation of an application object and save it to the database.
      */
     public function testCreation()
     {
-        /** @var \UserFrosting\Sprinkle\Core\Util\ClassMapper $classMapper */
-        $classMapper = $this->ci->classMapper;
+        /** @var \League\FactoryMuffin\FactoryMuffin $fm */
+        $fm = $this->ci->factory;
 
-        $data = array();
-        $data['user_name'] = 'test.test';
-        $data['email'] = 'test.test@the-fake-university.com';
-        $data['first_name'] = 'Test';
-        $data['last_name'] = 'Test';
-        $data['password'] = 'test.test123!';
-        $user = $classMapper->createInstance('user', $data);
-        $user->save();
-
-        $data = array();
-        $data['name'] = 'TEST1';
-        $data['code'] = 'TEST1';
-        $country = $classMapper->createInstance('country', $data);
-        $country->save();
-
-        $data = array();
-        $data['name'] = 'Throwing exceptions';
-        $expertise = $classMapper->createInstance('expertise', $data);
-        $expertise->save();
-
-        $data = array();
-        $data['name'] = 'The Fake University';
-        $data['domain'] = 'the-fake-university.com';
-        $university = $classMapper->createInstance('university', $data);
-        $university->save();
-
-        $data = array();
-        $data['country_id'] = $country->id;
-        $data['expertise_id'] = $expertise->id;
-        $data['university_id'] = $university->id;
-        $data['user_id'] = $user->id;
-        $data['year'] = 2017;
-        $data['birthday'] = '1990-10-10';
-        $data['street'] = 'Test Str. 123';
-        $data['postal_code'] = 12345;
-        $data['city'] = 'Test';
-        $data['state'] = 'NRW';
-        $data['tos_accepted'] = true;
-        $data['flag_accepted'] = true;
-        $application = $classMapper->createInstance('application', $data);
+        // Generate a test instance of the model
+        $application = $fm->create('UserFrosting\Sprinkle\Portal\Database\Models\Application');
+        $application->user->save();
+        $application->country->save();
+        $application->expertise->save();
+        $application->university->save();
         $application->save();
 
+        // Check if expected objects match
         $this->assertInstanceOf(Application::class, $application);
+        $this->assertInstanceOf(Country::class, $application->country);
+        $this->assertInstanceOf(Expertise::class, $application->expertise);
+        $this->assertInstanceOf(University::class, $application->university);
     }
 }

@@ -9,7 +9,6 @@ namespace UserFrosting\Tests\Unit;
 
 use UserFrosting\Sprinkle\Portal\Database\Models\Expertise;
 use UserFrosting\Tests\TestCase;
-use UserFrosting\Tests\DatabaseTransactions;
 
 /**
  * Expertise unit test class.
@@ -19,19 +18,16 @@ use UserFrosting\Tests\DatabaseTransactions;
  */
 class ExpertiseTest extends TestCase
 {
-    use DatabaseTransactions;
-
     /**
      * Test the creation of an expertise object and save it to the database.
      */
     public function testCreation()
     {
-        /** @var \UserFrosting\Sprinkle\Core\Util\ClassMapper $classMapper */
-        $classMapper = $this->ci->classMapper;
+        /** @var \League\FactoryMuffin\FactoryMuffin $fm */
+        $fm = $this->ci->factory;
 
-        $data = array();
-        $data['name'] = 'Testing';
-        $expertise = $classMapper->createInstance('expertise', $data);
+        // Generate a test instance of the model
+        $expertise = $fm->create('UserFrosting\Sprinkle\Portal\Database\Models\Expertise');
         $expertise->save();
 
         $this->assertInstanceOf(Expertise::class, $expertise);
