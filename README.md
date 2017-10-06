@@ -6,16 +6,16 @@
 This is the hackathon registration portal for DO!Hack 2017. It´s implemented as a [Sprinkle](https://learn.userfrosting.com/sprinkles/introduction) for UserFrosting. It was developed by [iGore](https://github.com/iGore) and [me](https://github.com/splitt3r).
 
 ## Installation
-In your `app/sprinkles/` folder do:
-```
-git submodule add -b master git@github.com:splitt3r/portal.git
-```
 Edit your `app/sprinkles.json`:
 ```
 {
-    ...,
+    "require": {
+        "splitt3r/portal": "dev-master"
+    },
     "base": [
-        ...,
+        "core",
+        "account",
+        "admin",
         "portal"
     ]
 }
