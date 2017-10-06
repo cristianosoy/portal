@@ -1,24 +1,28 @@
 # [DO!Hack](https://dohack.io) - Hackathon registration portal
+
+[![Build Status](https://img.shields.io/travis/splitt3r/portal.svg?style=flat-square)](https://travis-ci.org/splitt3r/portal)
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
+
 This is the hackathon registration portal for DO!Hack 2017. It´s implemented as a [Sprinkle](https://learn.userfrosting.com/sprinkles/introduction) for UserFrosting. It was developed by [iGore](https://github.com/iGore) and [me](https://github.com/splitt3r).
 
 ## Installation
-In your `app/sprinkles/` folder do:
-```
-git submodule add -b master git@github.com:splitt3r/portal.git portal
-```
 Edit your `app/sprinkles.json`:
 ```
 {
-    ...,
+    "require": {
+        "splitt3r/portal": "dev-master"
+    },
     "base": [
-        ...,
+        "core",
+        "account",
+        "admin",
         "portal"
     ]
 }
 ```
 In your root folder do:
 ```
-composer update
+composer update --no-dev
 php bakery bake
 ```
 
