@@ -4,7 +4,7 @@
 
 {% block stylesheets_page %}
     <!-- Include form widgets CSS -->
-    {{ assets.css("css/form-widgets") | raw }}
+    {{assets.css("css/form-widgets") | raw}}
 {% endblock %}
 
 {# Overrides blocks in head of base template #}
@@ -13,9 +13,7 @@
 {% block page_description %}{{translate("APPLICATION.DESCRIPTION")}}{% endblock %}
 
 {% block body_matter %}
-
     {% include "forms/application.html.twig" %}
-
 {% endblock %}
 
 {% block scripts_page %}
@@ -25,8 +23,8 @@
     </script>
 
     <!-- Include form widgets JS -->
-    {{ assets.js("js/form-widgets") | raw }}
+    {{assets.js("js/form-widgets") | raw}}
 
     <!-- Include page-specific JS -->
-    {{ assets.js("js/pages/application") | raw }}
+    {{assets.js("js/pages/application") | raw}}
 {% endblock %}
