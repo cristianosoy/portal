@@ -1,10 +1,10 @@
 /**
  * Page-specific Javascript file. Should generally be included as a separate asset bundle in your page template.
- * example: {{ assets.js('js/pages/application') | raw }}
+ * example: {{assets.js('js/pages/application') | raw}}
  *
- * Target page: application
+ * Target page: index (application)
  */
-$(document).ready(function () {
+$(function () {
     // Apply select2 to fields
     $('.js-select2').select2();
 
@@ -32,23 +32,25 @@ $(document).ready(function () {
 
     // Open confirm deletion modal window
     $('#open-confirm-delete').click(function () {
-        $('body').ufModal({
-            sourceUrl: site.uri.public + '/modals/applications/confirm-delete',
-            ajaxParams: {
-                id: $(this).data('id')
-            },
-            msgTarget: $('#alerts-page')
-        });
+        if (typeof $(this).attr('disabled') === 'undefined') {
+            $('body').ufModal({
+                sourceUrl: site.uri.public + '/modals/applications/confirm-delete',
+                ajaxParams: {
+                    id: $(this).data('id')
+                },
+                msgTarget: $('#alerts-page')
+            });
 
-        $('body').on('renderSuccess.ufModal', function (data) {
-            var modal = $(this).ufModal('getModal');
-            var form = modal.find('.js-form');
+            $('body').on('renderSuccess.ufModal', function (data) {
+                var modal = $(this).ufModal('getModal');
+                var form = modal.find('.js-form');
 
-            form.ufForm()
-                .on('submitSuccess.ufForm', function () {
-                    // Reload page on success
-                    window.location.reload();
-                });
-        });
+                form.ufForm()
+                    .on('submitSuccess.ufForm', function () {
+                        // Reload page on success
+                        window.location.reload();
+                    });
+            });
+        }
     });
 });

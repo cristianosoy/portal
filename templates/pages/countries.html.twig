@@ -2,7 +2,7 @@
 
 {% block stylesheets_page %}
     <!-- Page-specific CSS asset bundle -->
-    {{ assets.css('css/form-widgets') | raw }}
+    {{assets.css("css/form-widgets") | raw}}
 {% endblock %}
 
 {# Overrides blocks in head of base template #}
@@ -15,7 +15,7 @@
         <div class="col-md-12">
             <div id="widget-countries" class="box box-primary">
                 <div class="box-header">
-                    <h3 class="box-title"><i class="fa fa-globe fa-fw"></i> {{translate('COUNTRY', 2)}}</h3>
+                    <h3 class="box-title"><i class="fa fa-globe fa-fw"></i> {{translate("COUNTRY", 2)}}</h3>
                     <div class="pull-right">
                         <button class="btn btn-sm btn-default js-download-table">{{ translate("DOWNLOAD.CSV") }}</button>
                     </div>
@@ -38,6 +38,7 @@
         </div>
     </div>
 {% endblock %}
+
 {% block scripts_page %}
     <!-- Include validation rules -->
     <script>
@@ -45,9 +46,8 @@
     </script>
 
     <!-- Include form widgets JS -->
-    {{ assets.js('js/form-widgets') | raw }}
+    {{assets.js("js/form-widgets") | raw}}
 
     <!-- Include page-specific JS -->
-    {{ assets.js('js/pages/countries') | raw }}
-
+    {{assets.js("js/pages/countries") | raw}}
 {% endblock %}

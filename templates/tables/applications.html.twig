@@ -11,14 +11,14 @@
     <table id="{{table.id}}" class="tablesorter table table-bordered table-hover table-striped">
         <thead>
             <tr>
-                <th data-column-name="display_name" data-column-template="#application-table-column-display-name" data-sorter="false" data-filter="false">{{translate('NAME')}}</th>
+                <th data-column-name="display_name" data-column-template="#application-table-column-display-name" data-sorter="false" data-filter="false">{{translate("NAME")}}</th>
                 <th class="sorter-metatext" data-column-name="birthday" data-column-template="#application-table-column-birthday">{{translate("APPLICATION.BIRTHDAY")}}</th>
                 <th data-column-name="university_name" data-column-template="#application-table-column-university" data-sorter="false" data-filter="false">{{translate("UNIVERSITY")}}</th>
                 <th class="sorter-metatext" data-column-name="city" data-column-template="#application-table-column-city">{{translate("APPLICATION.CITY")}} <i class="fa fa-sort"></i></th>
                 <th class="sorter-metatext" data-column-name="state" data-column-template="#application-table-column-state">{{translate("APPLICATION.STATE")}} <i class="fa fa-sort"></i></th>
                 <th data-column-name="country_name" data-column-template="#application-table-column-country" data-sorter="false" data-filter="false">{{translate("COUNTRY")}}</th>
                 <th data-column-name="expertise_name" data-column-template="#application-table-column-expertise" data-sorter="false" data-filter="false">{{translate("EXPERTISE")}} <i class="fa fa-sort"></i></th>
-                <th data-column-template="#application-table-column-actions" data-sorter="false" data-filter="false">{{translate('ACTIONS')}}</th>
+                <th data-column-template="#application-table-column-actions" data-sorter="false" data-filter="false">{{translate("ACTIONS")}}</th>
             </tr>
         </thead>
         <tbody>
@@ -79,28 +79,27 @@
     <script id="application-table-column-actions" type="text/x-handlebars-template">
         <td>
             <div class="btn-group">
-                <button type="button" class="btn {{#ifx row.flag_accepted '==' 1 }}btn-primary{{ else }}btn-warning{{/ifx }} dropdown-toggle" data-toggle="dropdown">
-                    {% endverbatim %}{{translate("ACTIONS")}}{% verbatim %}
-                    <span class="caret"></span>
+                <button type="button" class="btn {{#ifx row.flag_accepted "==" 1}}btn-primary{{else}}btn-warning{{/ifx}} dropdown-toggle" data-toggle="dropdown">
+                    {% endverbatim %}{{translate("ACTIONS")}}{% verbatim %} <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu dropdown-menu-right" role="menu">
                     <li>
                         <a href="#" data-id="{{row.id}}" class="js-application-view">
-                        <i class="fa fa-edit"></i> {% endverbatim %}{{translate("APPLICATION.VIEW")}}{% verbatim %}
+                            <i class="fa fa-edit"></i> {% endverbatim %}{{translate("APPLICATION.VIEW")}}{% verbatim %}
                         </a>
                     </li>
                     <li>
                         <a href="#" data-id="{{row.id}}" class="js-application-accept">
-                        {{#ifx row.flag_accepted '==' 1 }}
-                        <i class="fa fa-minus-circle"></i> {% endverbatim %}{{translate("APPLICATION.REJECT")}}{% verbatim %}
-                        {{ else }}
-                        <i class="fa fa-plus-circle"></i> {% endverbatim %}{{translate("APPLICATION.ACCEPT")}}{% verbatim %}
-                        {{/ifx }}
+                        {{#ifx row.flag_accepted "==" 1}}
+                            <i class="fa fa-minus-circle"></i> {% endverbatim %}{{translate("APPLICATION.REJECT")}}{% verbatim %}
+                        {{else}}
+                            <i class="fa fa-plus-circle"></i> {% endverbatim %}{{translate("APPLICATION.ACCEPT")}}{% verbatim %}
+                        {{/ifx}}
                         </a>
                     </li>
                     <li>
                         <a href="#" data-id="{{row.id}}" class="js-application-delete">
-                        <i class="fa fa-trash-o"></i> {% endverbatim %}{{translate("DELETE")}}{% verbatim %}
+                            <i class="fa fa-trash-o"></i> {% endverbatim %}{{translate("DELETE")}}{% verbatim %}
                         </a>
                     </li>
                 </ul>

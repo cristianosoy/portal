@@ -1,13 +1,13 @@
 {% extends "@core/pages/abstract/base.html.twig" %}
 
 {% block stylesheets_site %}
-    {{ parent() }}
+    {{parent()}}
 
     <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
 {% endblock %}
 
 {% block scripts_site %}
-    {{ parent() }}
+    {{parent()}}
     
     <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
     <script>
@@ -24,10 +24,10 @@
                     }
                 },
                 "content": {
-                    "message": "{{ translate("COOKIES.MESSAGE") }}",
-                    "dismiss": "{{ translate("COOKIES.DISMISS") }}",
-                    "link": "{{ translate("COOKIES.LINK") }}",
-                    "href": "{{ translate("COOKIES.URL") | raw }}"
+                    "message": "{{translate("COOKIES.MESSAGE")}}",
+                    "dismiss": "{{translate("COOKIES.DISMISS")}}",
+                    "link": "{{translate("COOKIES.LINK")}}",
+                    "href": "{{translate("COOKIES.URL") | raw}}"
                 }
             })});
     </script>

@@ -63,33 +63,6 @@
                     }
                 }
             }
-        },
-        "css/portal": {
-            "styles": [
-                "userfrosting/css/portal.css"
-            ],
-            "options": {
-                "result": {
-                    "type": {
-                        "styles": "plain"
-                    }
-                }
-            }
-        },
-        "css/main": {
-            "styles" : [
-                "userfrosting/css/pages/application.css"
-            ],
-            "options": {
-                "result": {
-                    "type": {
-                        "styles": "plain"
-                    }
-                },
-                "sprinkle": {
-                    "onCollision": "merge"
-                }
-            }
         }
     }
 }
