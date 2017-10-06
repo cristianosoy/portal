@@ -8,7 +8,7 @@ This is the hackathon registration portal for DO!Hack 2017. It´s implemented as
 ## Installation
 In your `app/sprinkles/` folder do:
 ```
-git submodule add -b master git@github.com:splitt3r/portal.git portal
+git submodule add -b master git@github.com:splitt3r/portal.git
 ```
 Edit your `app/sprinkles.json`:
 ```
