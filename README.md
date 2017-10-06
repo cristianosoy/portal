@@ -22,7 +22,7 @@ Edit your `app/sprinkles.json`:
 ```
 In your root folder do:
 ```
-composer update
+composer update --no-dev
 php bakery bake
 ```
 
