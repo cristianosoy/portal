@@ -27,7 +27,7 @@ php bakery bake
 ```
 
 ### Configuration
-Finally the slug of the default group needs to be `user` and you have to remove the `uri_dashboard` rigth from the default user role and add it to the other ones.
+You have to remove the `uri_dashboard` rigth from the default user role and add it to the other ones.
 
 ### [Swot](https://github.com/JetBrains/swot) / University Import
 You can import recent [Swot](https://github.com/JetBrains/swot) changes by simply running:
