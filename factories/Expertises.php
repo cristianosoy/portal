@@ -12,5 +12,5 @@ use League\FactoryMuffin\Faker\Facade as Faker;
  * General factory for the expertise model.
  */
 $fm->define('UserFrosting\Sprinkle\Portal\Database\Models\Expertise')->setDefinitions([
-    'name' => Faker::unique()->sentence(1)
+    'name' => Faker::sentence(2)
 ]);

@@ -13,7 +13,5 @@ use League\FactoryMuffin\Faker\Facade as Faker;
  */
 $fm->define('UserFrosting\Sprinkle\Portal\Database\Models\Country')->setDefinitions([
     'name' => Faker::unique()->sentence(1),
-    'code' => function() {
-        return strtoupper(substr(uniqid('', true), -4));
-    }
+    'code' => Faker::unique()->regexify('[A-Z0-9]{4}')
 ]);

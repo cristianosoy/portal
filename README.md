@@ -1,4 +1,8 @@
 # [DO!Hack](https://dohack.io) - Hackathon registration portal
+
+[![Build Status](https://img.shields.io/travis/splitt3r/portal.svg?style=flat-square)](https://travis-ci.org/splitt3r/portal)
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
+
 This is the hackathon registration portal for DO!Hack 2017. It´s implemented as a [Sprinkle](https://learn.userfrosting.com/sprinkles/introduction) for UserFrosting. It was developed by [iGore](https://github.com/iGore) and [me](https://github.com/splitt3r).
 
 ## Installation
