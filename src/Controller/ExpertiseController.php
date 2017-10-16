@@ -94,7 +94,7 @@ class ExpertiseController extends SimpleController
         }
 
         // Begin transaction - DB will be rolled back if an exception occurs
-        Capsule::transaction(function () use ($classMapper, $data, $ms, $currentUser) {
+        Capsule::transaction(function () use ($classMapper, $data, $ms) {
             // Create the expertise
             $expertise = $classMapper->createInstance('expertise', $data);
 

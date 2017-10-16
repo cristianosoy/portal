@@ -9,7 +9,7 @@ $(function () {
     $('.js-select2').select2();
 
     // Workaround for checkbox problem in some browsers
-    $('#input-tos_accepted').on('ifChecked', function (event) {
+    $('#input-tos_accepted').on('ifChecked', function () {
         $(this).val('1');
     });
 
@@ -41,7 +41,7 @@ $(function () {
                 msgTarget: $('#alerts-page')
             });
 
-            $('body').on('renderSuccess.ufModal', function (data) {
+            $('body').on('renderSuccess.ufModal', function () {
                 var modal = $(this).ufModal('getModal');
                 var form = modal.find('.js-form');
 

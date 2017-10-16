@@ -6,7 +6,7 @@
  * Set up the form in a modal after being successfully attached to the body.
  */
 function attachApplicationForm() {
-    $('body').on('renderSuccess.ufModal', function (data) {
+    $('body').on('renderSuccess.ufModal', function () {
         var modal = $(this).ufModal('getModal');
         var form = modal.find('.js-form');
 
@@ -76,7 +76,7 @@ function acceptApplication(id) {
         } else {
             console.log('Error (' + response.status + '): ' + response.responseText);
         }
-    }).always(function (response) {
+    }).always(function () {
         window.location.reload();
     });
 }

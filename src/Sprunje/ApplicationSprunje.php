@@ -65,12 +65,12 @@ class ApplicationSprunje extends Sprunje
     protected function applyTransformations($collection)
     {
         // Replace id fields with values from results
-        $collection->transform(function ($item, $key) {
+        $collection->transform(function ($item) {
             $item['display_name'] = $item->display_name;
             $item['email'] = $item->email;
-            $item['country_name'] = $item->country->name;
-            $item['expertise_name'] = $item->expertise->name;
-            $item['university_name'] = $item->university->name;
+            $item['country_name'] = (!is_null($item->country)) ? $item->country->name : '';
+            $item['expertise_name'] = (!is_null($item->expertise)) ? $item->expertise->name : '';
+            $item['university_name'] = (!is_null($item->university)) ? $item->university->name : '';
 
             unset($item['user_id']);
             unset($item['country_id']);

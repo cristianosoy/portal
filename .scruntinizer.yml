@@ -1,0 +1,8 @@
+imports:
+  - javascript
+  - php
+
+build:
+    tests:
+        override:
+            -  jshint-run --config assets/userfrosting/js/.jshintrc

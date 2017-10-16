@@ -6,7 +6,7 @@
  * Set up the form in a modal after being successfully attached to the body.
  */
 function attachUniversityForm() {
-    $('body').on('renderSuccess.ufModal', function (data) {
+    $('body').on('renderSuccess.ufModal', function () {
         var modal = $(this).ufModal('getModal');
         var form = modal.find('.js-form');
 

@@ -99,7 +99,7 @@ class UniversityController extends SimpleController
         }
 
         // Begin transaction - DB will be rolled back if an exception occurs
-        Capsule::transaction(function () use ($classMapper, $data, $ms, $currentUser) {
+        Capsule::transaction(function () use ($classMapper, $data, $ms) {
             // Create the university
             $university = $classMapper->createInstance('university', $data);
 
@@ -155,7 +155,7 @@ class UniversityController extends SimpleController
         // Begin transaction - DB will be rolled back if an exception occurs
         Capsule::transaction(function () use ($university, $universityName, $currentUser) {
             $university->delete();
-            unset($expertise);
+            unset($university);
 
             // Create activity record
             $this->ci->userActivityLogger->info("User {$currentUser->user_name} deleted university {$universityName}.", [

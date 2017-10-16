@@ -18,9 +18,13 @@ use UserFrosting\Sprinkle\Core\Database\Models\Model;
  * @see https://learn.userfrosting.com/database
  * @property int id
  * @property int user_id
+ * @property \UserFrosting\Sprinkle\Account\Database\Models\User user
  * @property int country_id
+ * @property Country country
  * @property int expertise_id
+ * @property Expertise expertise
  * @property int university_id
+ * @property University university
  * @property int year
  * @property date birthday
  * @property string phone
@@ -194,9 +198,9 @@ class Application extends Model
     public function __get($name)
     {
         if ($name === 'display_name') {
-            return $this->user->getFullNameAttribute();
+            return (!is_null($this->user)) ? $this->user->getFullNameAttribute() : '';
         } elseif ($name === 'email') {
-            return $this->user->email;
+            return (!is_null($this->user)) ? $this->user->email : '';
         } else {
             return parent::__get($name);
         }

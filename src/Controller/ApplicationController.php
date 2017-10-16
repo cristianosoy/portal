@@ -310,7 +310,8 @@ class ApplicationController extends SimpleController
 
             // Create activity record
             $this->ci->userActivityLogger->info('Application from ' . $user->user_name . ' was deleted.', [
-                'type' => 'application_deleted'
+                'type' => 'application_deleted',
+                'user_id' => $currentUser->id
             ]);
         });
 
