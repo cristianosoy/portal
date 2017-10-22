@@ -14,3 +14,12 @@ charset = utf-8
 # 4 space indentation
 indent_style = space
 indent_size = 4
+
+# Line length form NC coding guidelines
+trim_trailing_whitespace = true
+max_line_length = 80
+
+# 2 space indentation for .travis.yml
+[.*.yml]
+indent_style = space
+indent_size = 2

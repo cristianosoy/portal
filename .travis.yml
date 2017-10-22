@@ -3,39 +3,43 @@ dist: trusty
 language: php
 
 services:
-    - mysql
-    - postgresql
+  - mysql
+  - postgresql
 
 php:
-    - 5.6
-    - 7
-    - 7.1
+  - 5.6
+  - 7
+  - 7.1
 
 env:
-    matrix:
-        - DB=mysql
-        - DB=sqlite 
-        - DB=pgsql 
+  matrix:
+    - DB=mysql
+    - DB=sqlite
+    - DB=pgsql
+
+cache:
+  directories:
+    - $HOME/.composer/cache
 
 before_install:
-    # clone UserFrosting
-    - cd ../
-    - git clone https://github.com/userfrosting/UserFrosting.git
-    - cd UserFrosting
-    # move and add sprinkle
-    - mv ../portal app/sprinkles/
-    - echo "{\"base\":[\"core\",\"account\",\"admin\",\"portal\"]}" > app/sprinkles.json
-    # set up db
-    - bash ./app/sprinkles/portal/before_install.sh $DB
+  # clone UserFrosting
+  - cd ../
+  - git clone https://github.com/userfrosting/UserFrosting.git
+  - cd UserFrosting
+  # move and add sprinkle
+  - mv ../portal app/sprinkles/
+  - echo "{\"base\":[\"core\",\"account\",\"admin\",\"portal\"]}" > app/sprinkles.json
+  # set up db
+  - bash ./app/sprinkles/portal/before_install.sh $DB
 
 before_script:
-    # install deps and UF
-    - composer install
-    - php bakery migrate
+  # install deps and UF
+  - composer install
+  - php bakery migrate
 
 script:
-    # run unit tests
-    - composer test
+  # run unit tests
+  - composer test
 
 after_failure:
-    - cat app/log/userfrosting.log
+  - cat app/log/userfrosting.log

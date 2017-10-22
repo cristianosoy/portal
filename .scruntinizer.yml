@@ -3,6 +3,6 @@ imports:
   - php
 
 build:
-    tests:
-        override:
-            -  jshint-run --config assets/userfrosting/js/.jshintrc
+  tests:
+    override:
+      -  jshint-run --config assets/userfrosting/js/.jshintrc
