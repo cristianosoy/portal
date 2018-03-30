@@ -30,7 +30,7 @@ before_install:
   - mv ../portal app/sprinkles/
   - echo "{\"base\":[\"core\",\"account\",\"admin\",\"portal\"]}" > app/sprinkles.json
   # set up db
-  - bash ./app/sprinkles/portal/before_install.sh $DB
+  - bash ./build/before_install.sh $DB
 
 before_script:
   # install deps and UF
